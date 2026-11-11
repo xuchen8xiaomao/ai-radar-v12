@@ -1,0 +1,8 @@
+name = "ai-radar-v12-preview-api"
+main = "src/index.ts"
+compatibility_date = "2026-11-01"
+# Add a separate STAGING D1 database binding after creation, not the production database.
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "ai-radar-v12-staging"
+# database_id = "REPLACE_WITH_STAGING_DATABASE_ID"

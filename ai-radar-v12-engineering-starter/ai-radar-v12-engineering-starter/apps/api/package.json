@@ -1,0 +1,1 @@
+{"name":"ai-radar-api","version":"1.2.0-dev","private":true,"type":"module","scripts":{"dev":"wrangler dev --local","typecheck":"tsc --noEmit"},"devDependencies":{"@cloudflare/workers-types":"^4.20251001.0","typescript":"~5.9.0","wrangler":"^4.0.0"}}
