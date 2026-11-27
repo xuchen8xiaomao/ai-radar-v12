@@ -1,7 +1,7 @@
 -- DRAFT SCHEMA FOR STAGING ONLY. Apply via Wrangler after creating staging D1.
 PRAGMA foreign_keys=ON;
 CREATE TABLE IF NOT EXISTS sources (id TEXT PRIMARY KEY, name TEXT NOT NULL, url TEXT NOT NULL UNIQUE, type TEXT, language TEXT, enabled INTEGER NOT NULL DEFAULT 1, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
-CREATE TABLE IF NOT EXISTS articles (id TEXT PRIMARY KEY, source_id TEXT NOT NULL REFERENCES sources(id), title TEXT NOT NULL, summary TEXT, url TEXT NOT NULL UNIQUE, language TEXT, published_at TEXT NOT NULL, discovered_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, published INTEGER NOT NULL DEFAULT 1);
+CREATE TABLE IF NOT EXISTS articles (id TEXT PRIMARY KEY, source_id TEXT NOT NULL REFERENCES sources(id), title TEXT NOT NULL, summary TEXT, url TEXT NOT NULL UNIQUE, language TEXT, published_at TEXT NOT NULL, discovered_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, published INTEGER NOT NULL DEFAULT 0);
 CREATE INDEX IF NOT EXISTS idx_articles_published ON articles(published, published_at DESC);
 CREATE TABLE IF NOT EXISTS topics (id TEXT PRIMARY KEY, name TEXT NOT NULL, is_featured INTEGER NOT NULL DEFAULT 0);
 CREATE TABLE IF NOT EXISTS research_tracks (id TEXT PRIMARY KEY, primary_topic_id TEXT NOT NULL REFERENCES topics(id), name TEXT NOT NULL, description TEXT, published INTEGER NOT NULL DEFAULT 0);
